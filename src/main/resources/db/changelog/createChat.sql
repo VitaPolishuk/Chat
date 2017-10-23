@@ -1,0 +1,8 @@
+CREATE TABLE CHAT (
+    id INT NOT NULL PRIMARY KEY ,
+    name VARCHAR(255),
+    message VARCHAR(255),
+    date VARCHAR(255),
+    idUser INT,
+    FOREIGN KEY (idUser) REFERENCES USERS(ID)
+);
