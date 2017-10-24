@@ -1,12 +1,15 @@
 package com.chat.controllers;
 
+import com.chat.entities.User;
 import com.chat.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
-@RequestMapping(value = "/")
 public class WebController {
 
     private UserService userService;
@@ -16,12 +19,17 @@ public class WebController {
         this.userService = userService;
     }
 
-    public String showHello() {
-        return "index";
+    @RequestMapping("/")
+    public String example(){
+        return "/html/index.html";
     }
 
-    @RequestMapping("allUsers")
-    public String allUsers() {
-        return userService.findAll().toString();
+    @RequestMapping(value = "/registration", method = RequestMethod.POST)
+    public
+    String registration(@RequestBody User user) {
+
+        System.out.println(user.getLogin() + " " + user.getPassword());
+
+    return "";
     }
 }

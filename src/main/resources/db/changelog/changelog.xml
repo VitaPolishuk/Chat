@@ -10,4 +10,9 @@
                  splitStatements="true"/>
     </changeSet>
 
+    <changeSet author="vita" id="updateUser">
+        <sqlFile path="updateUser.sql" relativeToChangelogFile="true" endDelimiter="\n/\s*\n|\n/\s*$"
+                 splitStatements="true"/>
+    </changeSet>
+
 </databaseChangeLog>

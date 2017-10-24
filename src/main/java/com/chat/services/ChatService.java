@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
+import java.util.List;
 
 @Service
 @Transactional
@@ -19,6 +21,14 @@ public class ChatService {
 
     public void save(Chat chat) {
         chatRepository.save(chat);
+    }
+
+    public List<Chat> findAll() {
+        List<Chat> userList = new ArrayList<>();
+        for (Chat user : chatRepository.findAll()) {
+            userList.add(user);
+        }
+        return userList;
     }
 
 }

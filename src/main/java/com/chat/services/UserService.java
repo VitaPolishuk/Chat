@@ -20,7 +20,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public List<User> findAll() {
+    public List<User> findAllUsers() {
         List<User> userList = new ArrayList<>();
         for (User user : userRepository.findAll()) {
             userList.add(user);
@@ -28,11 +28,15 @@ public class UserService {
         return userList;
     }
 
-    public void save(User user) {
+    public User findOneUser(int id){
+        return userRepository.findOne(id);
+    }
+
+    public void saveUser(User user) {
         userRepository.save(user);
     }
 
-    public void delete(int id) {
+    public void deleteUser(int id) {
         userRepository.delete(id);
     }
 }
